@@ -12,6 +12,7 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ClickableSpan;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,17 +22,26 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.unitconvertor.SignUpActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LogInActivity extends AppCompatActivity implements View.OnLongClickListener, DialogInterface.OnClickListener, View.OnClickListener {
+    private static final String TAG ="FIREBASE" ;
     private EditText editTextTextPassword, editTextTextEmailAddress;
     private Button buttonLogIn;
     private TextView signupTextView;
+    private FirebaseAuth mAuth;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
+
+        mAuth = FirebaseAuth.getInstance();
 
         editTextTextEmailAddress = findViewById(R.id.editTextTextEmailAddress);
         editTextTextPassword = findViewById(R.id.editTextTextPassword);
@@ -55,24 +65,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnLongClick
     }
 
 
-    public void login(View view) {
-        Intent intent = new Intent(this,MainActivity.class);
-        if (!editTextTextEmailAddress.getText().toString().equals("")) {
-            //saving email and password of user in a local file for future use
-            //create sp file
-            SharedPreferences sp = getSharedPreferences("settings", MODE_PRIVATE);
-            //open editor for editing
-            SharedPreferences.Editor editor = sp.edit();
-            //write the wanted settings
-            editor.putString("email", editTextTextEmailAddress.getText().toString());
-            editor.putString("password", editTextTextPassword.getText().toString());
-            //save and close file
-            editor.commit();
-            intent.putExtra("email", editTextTextEmailAddress.getText().toString());
-            startActivity(intent);
-        }
 
-    }
 
     public void signUp(View view) {
         Intent intent = new Intent(this, SignUpActivity.class);
@@ -137,6 +130,30 @@ public class LogInActivity extends AppCompatActivity implements View.OnLongClick
 
     }
 
+
+public void login(String email,String password){
+    mAuth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d(TAG, "signInWithEmail:success");
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        Intent i =new Intent(LogInActivity.this,MainActivity.class);
+                        startActivity(i);
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w(TAG, "signInWithEmail:failure", task.getException());
+                        Toast.makeText(LogInActivity.this, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    // ...
+                }
+            });
+}
 }
 
 
