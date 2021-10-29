@@ -30,7 +30,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LogInActivity extends AppCompatActivity implements View.OnLongClickListener, DialogInterface.OnClickListener, View.OnClickListener {
     private static final String TAG ="FIREBASE" ;
-    private EditText editTextTextPassword, editTextTextEmailAddress;
+    private EditText editTextTextPassword1, editTextTextEmailAddress1;
     private Button buttonLogIn;
     private TextView signupTextView;
     private FirebaseAuth mAuth;
@@ -43,8 +43,8 @@ public class LogInActivity extends AppCompatActivity implements View.OnLongClick
 
         mAuth = FirebaseAuth.getInstance();
 
-        editTextTextEmailAddress = findViewById(R.id.editTextTextEmailAddress);
-        editTextTextPassword = findViewById(R.id.editTextTextPassword);
+        editTextTextEmailAddress1 = findViewById(R.id.editTextTextEmailAddress);
+        editTextTextPassword1 = findViewById(R.id.editTextTextPassword);
         buttonLogIn = findViewById(R.id.buttonLogIn);
         buttonLogIn.setOnLongClickListener(this);
 
@@ -57,8 +57,8 @@ public class LogInActivity extends AppCompatActivity implements View.OnLongClick
         String password = sp.getString("password", "");
 
         if (!email.equals("") && !password.equals("")) {
-            editTextTextEmailAddress.setText(email);
-            editTextTextPassword.setText(password);
+            editTextTextEmailAddress1.setText(email);
+            editTextTextPassword1.setText(password);
 
         }
 
@@ -75,8 +75,8 @@ public class LogInActivity extends AppCompatActivity implements View.OnLongClick
     //clears email and password input on long click by user
     @Override
     public boolean onLongClick(View view) {
-        editTextTextEmailAddress.setText("");
-        editTextTextPassword.setText("");
+        editTextTextEmailAddress1.setText("");
+        editTextTextPassword1.setText("");
         return true;
     }
 
@@ -127,6 +127,10 @@ public class LogInActivity extends AppCompatActivity implements View.OnLongClick
                 break;
         }
         return super.onOptionsItemSelected(item);
+
+    }
+    public void login2 (View view){
+        login(editTextTextEmailAddress1.getText().toString(),editTextTextPassword1.getText().toString());
 
     }
 

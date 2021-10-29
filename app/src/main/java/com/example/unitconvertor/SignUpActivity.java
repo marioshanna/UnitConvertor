@@ -30,13 +30,16 @@ private FirebaseAuth mAuth;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         mAuth=FirebaseAuth.getInstance();
+        editTextTextEmailAddress=findViewById(R.id.editTextTextEmailAddress);
+        editTextTextPassword=findViewById(R.id.editTextTextPassword);
     }
     public void Submit(View view) {
        signup(editTextTextEmailAddress.getText().toString(),editTextTextPassword.getText().toString());
     }
 
 
-    public void signup(View view) {
+
+    public void submit(View view) {
         Intent intent = new Intent(this,MainActivity.class);
         if (!editTextTextEmailAddress.getText().toString().equals("")) {
             //saving email and password of user in a local file for future use

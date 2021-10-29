@@ -38,7 +38,7 @@
             android:id="@+id/text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="if you don't have an account "
+            android:text="Don't have an account? "
             android:textColor="#000000"
             android:textSize="20sp" />
         <TextView
@@ -56,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="91dp"
         android:backgroundTint="#A3C9A8"
-        android:onClick="login"
+        android:onClick="login2"
         android:padding="20sp"
         android:text="@string/login"
         android:textColor="#50808e"
