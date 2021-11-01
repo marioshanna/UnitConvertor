@@ -9,6 +9,12 @@
     tools:context=".LogInActivity">
 
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="242dp"
+        app:srcCompat="@drawable/enquiry_bk" />
+
     <EditText
         android:id="@+id/editTextTextEmailAddress"
         android:layout_width="match_parent"
@@ -55,11 +61,11 @@
         android:id="@+id/buttonLogIn"
         android:layout_width="match_parent"
         android:layout_height="91dp"
-        android:backgroundTint="#A3C9A8"
+        android:backgroundTint="#5F9EA0"
         android:onClick="login2"
         android:padding="20sp"
         android:text="@string/login"
-        android:textColor="#50808e"
+        android:textColor="#fffbe6"
         android:textSize="16sp"
         android:textStyle="bold"
         app:iconTint="#A3C9A8" />

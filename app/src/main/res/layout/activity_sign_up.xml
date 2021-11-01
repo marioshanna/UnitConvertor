@@ -80,13 +80,10 @@
                 android:layout_height="wrap_content"
                 android:text="Birth Date: " />
 
-            <EditText
-                android:id="@+id/editTextTextBirthDate"
+            <CalendarView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="date"
-                android:hint="Birth Date" />
+                android:layout_height="wrap_content"/>
+
         </TableRow>
 
         <TableRow

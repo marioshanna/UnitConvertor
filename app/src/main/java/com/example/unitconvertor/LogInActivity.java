@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.example.unitconvertor.SignUpActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -158,6 +159,7 @@ public void login(String email,String password){
                 }
             });
 }
+
 }
 
 
