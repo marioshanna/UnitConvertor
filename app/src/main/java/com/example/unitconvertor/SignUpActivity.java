@@ -25,6 +25,7 @@ private FirebaseAuth mAuth;
     private EditText editTextTextPassword, editTextTextEmailAddress;
     private Button buttonLogIn;
     private TextView signupTextView;
+    public String ok = "visible";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

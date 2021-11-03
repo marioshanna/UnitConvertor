@@ -1,17 +1,28 @@
  package com.example.unitconvertor;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
  public class ConvertorActivity extends AppCompatActivity {
 
-    @Override
+     private String[] titles1 = {"Currency","Temp.","Size","Weight"};
+     private int[] titles = {
+             R.drawable.money,
+             R.drawable.sun,
+             R.drawable.ic_baseline_square_foot_24,
+             R.drawable.weight
+
+     };
+     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_convertor);
@@ -27,9 +38,14 @@ import com.google.android.material.tabs.TabLayoutMediator;
         new TabLayoutMediator(tabLayout,viewPager2,new TabLayoutMediator.TabConfigurationStrategy(){
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                tab.setText("Tab"+(position+1));
+                tab.setText(titles[position]);
             }
         }).attach();
+
+
     }
+
+
+
 
 }
