@@ -6,14 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ConvertorActivity"
     android:orientation="vertical"
-    >
+    app:tabMode="fixed">
+
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="166dp">
+        tools:layout_editor_absoluteY="166dp"
+        >
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2

@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -14,14 +15,12 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
  public class ConvertorActivity extends AppCompatActivity {
 
-     private String[] titles1 = {"Currency","Temp.","Size","Weight"};
+     private String[] titles1 = {"currency","temp.","length","weight"};
      private int[] titles = {
              R.drawable.money,
              R.drawable.sun,
-             R.drawable.ic_baseline_square_foot_24,
-             R.drawable.weight
-
-     };
+             R.drawable.ruler,
+             R.drawable.weight};
      @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +37,8 @@ import com.google.android.material.tabs.TabLayoutMediator;
         new TabLayoutMediator(tabLayout,viewPager2,new TabLayoutMediator.TabConfigurationStrategy(){
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                tab.setText(titles[position]);
+                 tab.setIcon(titles[position]);
+                 tab.setText(titles1[position]);
             }
         }).attach();
 

@@ -13,11 +13,11 @@
         android:layout_width="325dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:backgroundTint="#67BF6B"
+        android:backgroundTint="#5F9EA0"
         android:gravity="center"
         android:text="convertor"
         android:onClick="convertor"
-        android:textColor="#FFEA2A1C"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -30,9 +30,9 @@
         android:layout_width="325dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:backgroundTint="#FF67BF6B"
+        android:backgroundTint="#5F9EA0"
         android:text="currency exchange rates"
-        android:textColor="#FFEA2A1C"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -45,9 +45,9 @@
         android:layout_width="325dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:backgroundTint="#FF67BF6B"
+        android:backgroundTint="#5F9EA0"
         android:text="weather"
-        android:textColor="#EA2A1C"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold" />
 
