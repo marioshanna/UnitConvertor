@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
+import android.widget.AdapterView.OnItemSelectedListener;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link currencyFragment#newInstance} factory method to
@@ -54,6 +56,7 @@ public class currencyFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -61,6 +64,8 @@ public class currencyFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_currency, container, false);
+
     }
+
 
 }
