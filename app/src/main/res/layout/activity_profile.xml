@@ -12,17 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Take Picture"
-        android:id="@+id/buttoncamera"/>
+        android:id="@+id/buttoncamera"
+        android:backgroundTint="#5F9EA0"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="open gallery"
-        android:id="@+id/buttongallery"/>
+        android:id="@+id/buttongallery"
+        android:backgroundTint="#5F9EA0"/>
     <ImageView
         android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_lock_24"
+        android:src="@drawable/ic_baseline_camera_alt_24"
         android:id="@+id/imageViewProfile"/>
 
 </LinearLayout>

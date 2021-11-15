@@ -31,12 +31,12 @@ public class About extends AppCompatActivity  {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.aboutsmenu:
+            case R.id.cammenu:
                 Intent intent = new Intent(this, ProfileActivity.class);
                 startActivity(intent);
                 break;
 
-            case R.id.exitmenu:
+            case R.id.aboutsmenu:
                 Toast.makeText(this, "about", Toast.LENGTH_LONG).show();
                 break;
             case R.id.logoutmenu:
