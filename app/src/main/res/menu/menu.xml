@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/exitmenu"
-        android:title="Exit" />
+        android:title="camera" />
     <item
         android:id="@+id/aboutsmenu"
         android:title="about" />

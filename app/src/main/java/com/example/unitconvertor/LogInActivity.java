@@ -66,13 +66,6 @@ public class LogInActivity extends AppCompatActivity implements View.OnLongClick
     }
 
 
-
-
-    public void signUp(View view) {
-        Intent intent = new Intent(this, SignUpActivity.class);
-        startActivity(intent);
-    }
-
     //clears email and password input on long click by user
     @Override
     public boolean onLongClick(View view) {
