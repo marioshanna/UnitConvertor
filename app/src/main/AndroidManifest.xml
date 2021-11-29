@@ -41,9 +41,20 @@
             </intent-filter>
         </activity>
         <service
+            android:name=".NotifacationIntentService"
+            android:exported="false"></service>
+
+        <service
+            android:name=".NotifactionIntentService"
+            android:exported="false" />
+        <service
+            android:name=".NotifacationReceiver"
+            android:enabled="true"
+            android:exported="true" />
+        <service
             android:name=".MusicService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
     </application>
 
 </manifest>

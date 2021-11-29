@@ -9,12 +9,15 @@
     app:tabMode="fixed">
 
 
+
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="166dp"
+        android:gravity="center"
         >
     </com.google.android.material.tabs.TabLayout>
 
