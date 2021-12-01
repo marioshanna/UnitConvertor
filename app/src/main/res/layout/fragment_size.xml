@@ -5,10 +5,55 @@
     android:layout_height="match_parent"
     tools:context=".SizeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+<TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TableRow>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="50dp" >
+        <TextView
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="From: "
+            android:textSize="25sp"
+            android:textColor="@color/black"/>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:spinnerMode="dropdown"
+
+        />
+    </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Value: "
+                android:textColor="@color/black"
+                android:textSize="25sp"/>
+            <EditText
+                android:id="@+id/fromtext"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:ems="10"
+                />
+
+    </TableRow>
+</TableLayout>
+
+
     <TextView
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:textSize="46sp"
         android:text="size" />
 
 </FrameLayout>

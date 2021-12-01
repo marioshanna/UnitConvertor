@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.unitconvertor">
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -41,16 +44,14 @@
             </intent-filter>
         </activity>
         <service
-            android:name=".NotifacationIntentService"
+            android:name=".NotificationIntentService"
+            android:enabled="true"
             android:exported="false"></service>
 
-        <service
-            android:name=".NotifactionIntentService"
-            android:exported="false" />
-        <service
-            android:name=".NotifacationReceiver"
-            android:enabled="true"
-            android:exported="true" />
+        <receiver android:name=".NotifactionReceiver"
+            android:exported="false"
+            android:enabled="true"/>
+
         <service
             android:name=".MusicService"
             android:enabled="true"

@@ -138,6 +138,11 @@ public class LogInActivity extends AppCompatActivity implements View.OnLongClick
 
     }
     public void login2 (View view){
+        SharedPreferences sp = getSharedPreferences("settings", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("email",editTextTextEmailAddress1.getText().toString());
+        editor.putString("password",editTextTextPassword1.getText().toString());
+        editor.commit();
         login(editTextTextEmailAddress1.getText().toString(),editTextTextPassword1.getText().toString());
 
     }
