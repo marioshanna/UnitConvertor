@@ -17,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toast;
 
+import java.lang.reflect.InvocationTargetException;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,10 +26,13 @@ import android.widget.Toast;
  * create an instance of this fragment.
  */
 public class SizeFragment<adapter> extends Fragment {
-    Spinner dropdown;
-    String[] items = new String[]{"Choose apple", "Choose boy", " Choose cat", "Choose dog",};
+    private Spinner spinnerfrom;
+    private Spinner spinnerto;
+    private EditText fromEditText;
+    private TextView result;
+
+
     int sw=0;
-    private EditText fromtext;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -78,8 +83,17 @@ public class SizeFragment<adapter> extends Fragment {
 
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_size, container, false);
-        dropdown = rootView.findViewById(R.id.spinner);
+        spinnerfrom = rootView.findViewById(R.id.spinnerfrom);
+        fromEditText =rootView.findViewById(R.id.fromtext);
+        spinnerto = rootView.findViewById(R.id.spinnerto);
+        result = rootView.findViewById(R.id.Result);
         initspinnerfooter();
+        initspinnerfooter1();
+        double dub = Double.parseDouble(fromEditText.getText().toString())*6;
+        String tot = new Double(dub).toString();
+        result.setText(tot);
+
+
         return rootView;
 
 
@@ -87,28 +101,37 @@ public class SizeFragment<adapter> extends Fragment {
 
     private void initspinnerfooter() {
         String[] items = new String[]{"Meter", "Centimeter", "Inch", "Feet","Yard","Kilometer","Mile"};
-
-
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, items);
-        dropdown.setAdapter(adapter1);
-        dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerfrom.setAdapter(adapter1);
+        spinnerfrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Log.v("item", (String) parent.getItemAtPosition(position));
-                ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
+            public void onItemSelected(AdapterView<?> parent1, View view1, int position1, long id1) {
+                double from=0.0;
+                Log.v("item", (String) parent1.getItemAtPosition(position1));
+                ((TextView) parent1.getChildAt(0)).setTextColor(Color.BLACK);
 
-                switch (position){
-                        case 0:
-                            sw=1;
-                            break;
-                        case 1:
-                            break;
-                        case 2:
-                            break;
-                        default:
-                            return;
-                    }
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+
+    }
+
+
+    private void initspinnerfooter1() {
+        String[] items1 = new String[]{"Meter", "Centimeter", "Inch", "Feet","Kilometer","Mile"};
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, items1);
+        spinnerto.setAdapter(adapter2);
+        spinnerto.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent2, View view2, int position2, long id2) {
+
+                Log.v("item", (String) parent2.getItemAtPosition(position2));
+                ((TextView) parent2.getChildAt(0)).setTextColor(Color.BLACK);
 
             }
 
