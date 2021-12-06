@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -25,11 +26,12 @@ import java.lang.reflect.InvocationTargetException;
  * Use the {@link SizeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SizeFragment<adapter> extends Fragment {
+public class SizeFragment<adapter> extends Fragment implements View.OnClickListener{
     private Spinner spinnerfrom;
     private Spinner spinnerto;
     private EditText fromEditText;
     private TextView result;
+    private Button button;
 
 
     int sw=0;
@@ -87,11 +89,10 @@ public class SizeFragment<adapter> extends Fragment {
         fromEditText =rootView.findViewById(R.id.fromtext);
         spinnerto = rootView.findViewById(R.id.spinnerto);
         result = rootView.findViewById(R.id.Result);
+        button = rootView.findViewById(R.id.convertor_button);
         initspinnerfooter();
         initspinnerfooter1();
-        double dub = Double.parseDouble(fromEditText.getText().toString())*6;
-        String tot = new Double(dub).toString();
-        result.setText(tot);
+        button.setOnClickListener(this);
 
 
         return rootView;
@@ -143,5 +144,113 @@ public class SizeFragment<adapter> extends Fragment {
 
 
     }
+    public void change(){
+        if(!fromEditText.getText().toString().equals("")) {
+            double dub = Double.parseDouble(fromEditText.getText().toString()) * 6;
+            String tot = new Double(dub).toString();
+            result.setText(tot);
+        }
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        if(!fromEditText.getText().toString().equals("")) {
+            double dub = Double.parseDouble(fromEditText.getText().toString()) * 6;
+            String tot = new Double(dub).toString();
+            result.setText(tot);
+        }
+    }
+    public double same(EditText fromEditText){
+        double num;
+        num =Double.parseDouble(fromEditText.getText().toString());
+        return num;
+    }
+    public double metercenti(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())*100;
+        return num;
+    }
+    public double meterinch(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())*39.37;
+        return num;
+    }
+    public double meterfeet(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())*3.281;
+        return num;
+    }
+    public double meterkilo(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())/1000;
+        return num;
+    }
+    public double metermile(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())/1609;
+        return num;
+    }
+    public double centimeter(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())/100;
+        return num;
+    }
+    public double centiinch(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())/2.54;
+        return num;
+    }
+    public double centifeet(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())/30.48;
+        return num;
+    }
+    public double centikilo(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())/100000;
+        return num;
+    }
+    public double centimile(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())/160934;
+        return num;
+    }
+    public double inchmeter(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())/39.37;
+        return num;
+    }
+    public double inchcenti(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())*2.54;
+        return num;
+    }
+    public double inchfeet(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())/12;
+        return num;
+    }
+    public double inchkilo(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())/39370;
+        return num;
+    }
+    public double inchmile(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())/63360;
+        return num;
+    }
+    public double feetmeter(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())/3.281;
+        return num;
+    }
+    public double feetcenti(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())*30.;
+        return num;
+    }
+
 
 }
