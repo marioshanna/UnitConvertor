@@ -66,9 +66,10 @@
                 android:layout_height="75dp"
                 android:backgroundTint="#5F9EA0"
                 android:text="CONVERT"
-                android:textAlignment="center"
+                android:layout_gravity="left"
                 android:textColor="@color/white"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                />
 
         </TableRow>
         <TableRow>

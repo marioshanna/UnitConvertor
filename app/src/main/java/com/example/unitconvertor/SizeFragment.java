@@ -18,6 +18,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.lang.reflect.InvocationTargetException;
 
 
@@ -33,6 +37,7 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
     private TextView result;
     private Button button;
     private int from=0, to=0;
+    private FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
 
 
     int sw=0;
@@ -93,6 +98,13 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
         button = rootView.findViewById(R.id.convertor_button);
         initspinnerfooter();
         initspinnerfooter1();
+        // Write a message to the database
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://unit-convertor-4bca3-default-rtdb.europe-west1.firebasedatabase.app/");
+        String UID= mFirebaseAuth.getUid();
+        DatabaseReference myRef = database.getReference("users"+UID);
+        myRef.push().setValue(from);
+
+
 
         button.setOnClickListener(this);
 
@@ -202,9 +214,7 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
                         break;
                 }
             }
-            double dub = Double.parseDouble(fromEditText.getText().toString()) * 6;
-            String tot = new Double(dub).toString();
-            result.setText(tot);
+
         }
     }
     public String same(EditText fromEditText){
