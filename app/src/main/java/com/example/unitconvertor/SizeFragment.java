@@ -32,6 +32,7 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
     private EditText fromEditText;
     private TextView result;
     private Button button;
+    private int from=0, to=0;
 
 
     int sw=0;
@@ -92,6 +93,7 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
         button = rootView.findViewById(R.id.convertor_button);
         initspinnerfooter();
         initspinnerfooter1();
+
         button.setOnClickListener(this);
 
 
@@ -110,7 +112,7 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
                 double from=0.0;
                 Log.v("item", (String) parent1.getItemAtPosition(position1));
                 ((TextView) parent1.getChildAt(0)).setTextColor(Color.BLACK);
-
+                from = position1;
             }
 
             @Override
@@ -133,7 +135,7 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
 
                 Log.v("item", (String) parent2.getItemAtPosition(position2));
                 ((TextView) parent2.getChildAt(0)).setTextColor(Color.BLACK);
-
+                to=position2;
             }
 
             @Override
@@ -152,105 +154,246 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
         }
 
     }
-
+//{"Meter", "Centimeter", "Inch", "Feet","Kilometer","Mile"}
     @Override
     public void onClick(View view) {
         if(!fromEditText.getText().toString().equals("")) {
+            if(from==0){
+                switch (to){
+                    case 0:
+                        result.setText(same(fromEditText));
+                        break;
+                    case 1:
+                        result.setText(metercenti(fromEditText));
+                        break;
+                    case 2:
+                        result.setText(meterinch(fromEditText));
+                        break;
+                    case 3:
+                        result.setText(meterfeet(fromEditText));
+                        break;
+                    case 4:
+                        result.setText(meterkilo(fromEditText));
+                        break;
+                    case 5:
+                        result.setText(metermile(fromEditText));
+                        break;
+                }
+            }
+            if(from==1){
+                switch (to){
+                    case 0:
+                        result.setText(centimeter(fromEditText));
+                        break;
+                    case 1:
+                        result.setText(same(fromEditText));
+                        break;
+                    case 2:
+                        result.setText(centiinch(fromEditText));
+                        break;
+                    case 3:
+                        result.setText(centifeet(fromEditText));
+                        break;
+                    case 4:
+                        result.setText(centikilo(fromEditText));
+                        break;
+                    case 5:
+                        result.setText(centimile(fromEditText));
+                        break;
+                }
+            }
             double dub = Double.parseDouble(fromEditText.getText().toString()) * 6;
             String tot = new Double(dub).toString();
             result.setText(tot);
         }
     }
-    public double same(EditText fromEditText){
+    public String same(EditText fromEditText){
         double num;
         num =Double.parseDouble(fromEditText.getText().toString());
-        return num;
+        String tot = new Double(num).toString();
+        return tot;
     }
-    public double metercenti(EditText fromEditText){
+    public String metercenti(EditText fromEditText){
         double num;
         num= Double.parseDouble(fromEditText.getText().toString())*100;
-        return num;
+        String tot = new Double(num).toString();
+        return tot;
     }
-    public double meterinch(EditText fromEditText){
+    public String meterinch(EditText fromEditText){
         double num;
         num= Double.parseDouble(fromEditText.getText().toString())*39.37;
-        return num;
+        String tot = new Double(num).toString();
+        return tot;
     }
-    public double meterfeet(EditText fromEditText){
+    public String meterfeet(EditText fromEditText){
         double num;
         num= Double.parseDouble(fromEditText.getText().toString())*3.281;
-        return num;
+        String tot = new Double(num).toString();
+        return tot;
     }
-    public double meterkilo(EditText fromEditText){
+    public String meterkilo(EditText fromEditText){
         double num;
         num= Double.parseDouble(fromEditText.getText().toString())/1000;
-        return num;
+        String tot = new Double(num).toString();
+        return tot;
     }
-    public double metermile(EditText fromEditText){
+    public String metermile(EditText fromEditText){
         double num;
         num= Double.parseDouble(fromEditText.getText().toString())/1609;
-        return num;
+        String tot = new Double(num).toString();
+        return tot;
     }
-    public double centimeter(EditText fromEditText){
+    public String centimeter(EditText fromEditText){
         double num;
         num= Double.parseDouble(fromEditText.getText().toString())/100;
-        return num;
+        String tot = new Double(num).toString();
+        return tot;
     }
-    public double centiinch(EditText fromEditText){
+    public String centiinch(EditText fromEditText){
         double num;
         num= Double.parseDouble(fromEditText.getText().toString())/2.54;
-        return num;
+        String tot = new Double(num).toString();
+        return tot;
     }
-    public double centifeet(EditText fromEditText){
+    public String centifeet(EditText fromEditText){
         double num;
         num= Double.parseDouble(fromEditText.getText().toString())/30.48;
-        return num;
+        String tot = new Double(num).toString();
+        return tot;
     }
-    public double centikilo(EditText fromEditText){
+    public String centikilo(EditText fromEditText){
         double num;
         num= Double.parseDouble(fromEditText.getText().toString())/100000;
-        return num;
+        String tot = new Double(num).toString();
+        return tot;
     }
-    public double centimile(EditText fromEditText){
+    public String centimile(EditText fromEditText){
         double num;
         num= Double.parseDouble(fromEditText.getText().toString())/160934;
-        return num;
+        String tot = new Double(num).toString();
+        return tot;
     }
-    public double inchmeter(EditText fromEditText){
+    public String inchmeter(EditText fromEditText){
         double num;
         num= Double.parseDouble(fromEditText.getText().toString())/39.37;
-        return num;
+        String tot = new Double(num).toString();
+        return tot;
     }
-    public double inchcenti(EditText fromEditText){
+    public String inchcenti(EditText fromEditText){
         double num;
         num= Double.parseDouble(fromEditText.getText().toString())*2.54;
-        return num;
+        String tot = new Double(num).toString();
+        return tot;
     }
-    public double inchfeet(EditText fromEditText){
+    public String inchfeet(EditText fromEditText){
         double num;
         num= Double.parseDouble(fromEditText.getText().toString())/12;
-        return num;
+        String tot = new Double(num).toString();
+        return tot;
     }
-    public double inchkilo(EditText fromEditText){
+    public String inchkilo(EditText fromEditText){
         double num;
         num= Double.parseDouble(fromEditText.getText().toString())/39370;
-        return num;
+        String tot = new Double(num).toString();
+        return tot;
     }
-    public double inchmile(EditText fromEditText){
+    public String inchmile(EditText fromEditText){
         double num;
         num= Double.parseDouble(fromEditText.getText().toString())/63360;
-        return num;
+        String tot = new Double(num).toString();
+        return tot;
     }
-    public double feetmeter(EditText fromEditText){
+    public String feetmeter(EditText fromEditText){
         double num;
         num= Double.parseDouble(fromEditText.getText().toString())/3.281;
-        return num;
+        String tot = new Double(num).toString();
+        return tot;
     }
-    public double feetcenti(EditText fromEditText){
+    public String feetcenti(EditText fromEditText){
         double num;
-        num= Double.parseDouble(fromEditText.getText().toString())*30.;
-        return num;
+        num= Double.parseDouble(fromEditText.getText().toString())*30.48;
+        String tot = new Double(num).toString();
+        return tot;
+    }
+    public String feetkilo(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())/3281;
+        String tot = new Double(num).toString();
+        return tot;
+    }
+    public String feetinch(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())*12;
+        String tot = new Double(num).toString();
+        return tot;
+    }
+    public String feetmile(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())/5280;
+        String tot = new Double(num).toString();
+        return tot;
+    }
+    public String kilometer(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())*1000;
+        String tot = new Double(num).toString();
+        return tot;
+    }
+    public String kilocm(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())*100000;
+        String tot = new Double(num).toString();
+        return tot;
+    }
+    public String kiloinch(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())*39370;
+        String tot = new Double(num).toString();
+        return tot;
+    }
+    public String kilofeet(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())*3281;
+        String tot = new Double(num).toString();
+        return tot;
+    }
+    public String kilomile(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())/1.609;
+        String tot = new Double(num).toString();
+        return tot;
+    }
+    public String milemeter(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())*1609;
+        String tot = new Double(num).toString();
+        return tot;
+    }
+    public String milecm(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())*160934;
+        String tot = new Double(num).toString();
+        return tot;
+    }
+    public String mileinch(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())*63360;
+        String tot = new Double(num).toString();
+        return tot;
+    }
+    public String milefeet(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())*5280;
+        String tot = new Double(num).toString();
+        return tot;
+    }
+    public String milekm(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())*1.609;
+        String tot = new Double(num).toString();
+        return tot;
     }
 
 
 }
+//{"Meter", "Centimeter", "Inch", "Feet","Kilometer","Mile"};
