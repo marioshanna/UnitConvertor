@@ -10,6 +10,7 @@
         <entry key="..\:/Android/UnitConvertor/app/src/main/res/drawable/money.xml" value="0.109375" />
         <entry key="..\:/Android/UnitConvertor/app/src/main/res/layout/activity_about.xml" value="0.1" />
         <entry key="..\:/Android/UnitConvertor/app/src/main/res/layout/activity_convertor.xml" value="0.1" />
+        <entry key="..\:/Android/UnitConvertor/app/src/main/res/layout/activity_history_array_list.xml" value="0.14479166666666668" />
         <entry key="..\:/Android/UnitConvertor/app/src/main/res/layout/activity_log_in.xml" value="0.22" />
         <entry key="..\:/Android/UnitConvertor/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Android/UnitConvertor/app/src/main/res/layout/activity_profile.xml" value="0.22" />
@@ -20,6 +21,7 @@
         <entry key="..\:/Android/UnitConvertor/app/src/main/res/layout/fragment_size.xml" value="0.20416666666666666" />
         <entry key="..\:/Android/UnitConvertor/app/src/main/res/layout/fragment_temp.xml" value="0.16770833333333332" />
         <entry key="..\:/Android/UnitConvertor/app/src/main/res/layout/fragment_weight.xml" value="0.16770833333333332" />
+        <entry key="..\:/Android/UnitConvertor/app/src/main/res/layout/row.xml" value="0.14479166666666668" />
         <entry key="..\:/Android/UnitConvertor/app/src/main/res/layout/tab2.xml" value="0.18568840579710144" />
         <entry key="..\:/Android/UnitConvertor/app/src/main/res/layout/tab3.xml" value="0.18568840579710144" />
         <entry key="..\:/Android/UnitConvertor/app/src/main/res/layout/unit_row.xml" value="0.1" />

@@ -3,6 +3,7 @@ package com.example.unitconvertor;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -19,8 +20,11 @@ import android.widget.Toast;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -38,9 +42,8 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
     private Button button;
     private int from=0, to=0;
     private FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
-
-
     int sw=0;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -103,10 +106,21 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
         String UID= mFirebaseAuth.getUid();
         DatabaseReference myRef = database.getReference("users"+UID);
         myRef.push().setValue(from);
-
-
-
         button.setOnClickListener(this);
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    double from = (double) dataSnapshot.getValue();
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
         return rootView;
@@ -115,7 +129,7 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
     }
 
     private void initspinnerfooter() {
-        String[] items = new String[]{"Meter", "Centimeter", "Inch", "Feet","Yard","Kilometer","Mile"};
+        String[] items = new String[]{"Meter", "Centimeter", "Inch", "Feet","Kilometer","Mile"};
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, items);
         spinnerfrom.setAdapter(adapter1);
         spinnerfrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -214,6 +228,95 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
                         break;
                 }
             }
+            if(from==2){
+                switch (to){
+                    case 0:
+                        result.setText(inchmeter(fromEditText));
+                        break;
+                    case 1:
+                        result.setText(inchcenti(fromEditText));
+                        break;
+                    case 2:
+                        result.setText(same(fromEditText));
+                        break;
+                    case 3:
+                        result.setText(inchfeet(fromEditText));
+                        break;
+                    case 4:
+                        result.setText(inchkilo(fromEditText));
+                        break;
+                    case 5:
+                        result.setText(inchmile(fromEditText));
+                        break;
+                }
+            }
+            if(from==3){
+                switch (to){
+                    case 0:
+                        result.setText(feetmeter(fromEditText));
+                        break;
+                    case 1:
+                        result.setText(feetcenti(fromEditText));
+                        break;
+                    case 2:
+                        result.setText(feetinch(fromEditText));
+                        break;
+                    case 3:
+                        result.setText(same(fromEditText));
+                        break;
+                    case 4:
+                        result.setText(feetkilo(fromEditText));
+                        break;
+                    case 5:
+                        result.setText(feetmile(fromEditText));
+                        break;
+                }
+            }
+            if(from==4){
+                switch (to){
+                    case 0:
+                        result.setText(kilometer(fromEditText));
+                        break;
+                    case 1:
+                        result.setText(kilocm(fromEditText));
+                        break;
+                    case 2:
+                        result.setText(kiloinch(fromEditText));
+                        break;
+                    case 3:
+                        result.setText(kilofeet(fromEditText));
+                        break;
+                    case 4:
+                        result.setText(same(fromEditText));
+                        break;
+                    case 5:
+                        result.setText(kilomile(fromEditText));
+                        break;
+                }
+            }
+            if(from==5){
+                switch (to){
+                    case 0:
+                        result.setText(milemeter(fromEditText));
+                        break;
+                    case 1:
+                        result.setText(milecm(fromEditText));
+                        break;
+                    case 2:
+                        result.setText(mileinch(fromEditText));
+                        break;
+                    case 3:
+                        result.setText(milefeet(fromEditText));
+                        break;
+                    case 4:
+                        result.setText(milekm(fromEditText));
+                        break;
+                    case 5:
+                        result.setText(same(fromEditText));
+                        break;
+                }
+            }
+
 
         }
     }
@@ -406,4 +509,5 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
 
 
 }
+
 //{"Meter", "Centimeter", "Inch", "Feet","Kilometer","Mile"};

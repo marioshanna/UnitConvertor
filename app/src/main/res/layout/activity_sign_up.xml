@@ -69,14 +69,14 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/etUsername"
+                    android:id="@+id/passwordTextView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:ems="10"
                     android:inputType="textPassword"
-                    android:hint="Username" />
+                    android:hint="Password" />
 
             </com.google.android.material.textfield.TextInputLayout>
         </TableRow>
