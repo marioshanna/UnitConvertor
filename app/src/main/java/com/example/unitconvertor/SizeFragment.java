@@ -41,8 +41,7 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
     private TextView result;
     private Button button;
     private int from=0, to=0;
-    private FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
-    int sw=0;
+
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -54,9 +53,7 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
     private String mParam1;
     private String mParam2;
 
-    public SizeFragment() {
-        // Required empty public constructor
-    }
+
 
     /**
      * Use this factory method to create a new instance of
@@ -102,27 +99,7 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
         initspinnerfooter();
         initspinnerfooter1();
         // Write a message to the database
-        FirebaseDatabase database = FirebaseDatabase.getInstance("https://unit-convertor-4bca3-default-rtdb.europe-west1.firebasedatabase.app/");
-        String UID= mFirebaseAuth.getUid();
-        DatabaseReference myRef = database.getReference("users"+UID);
-        myRef.push().setValue(from);
         button.setOnClickListener(this);
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    double from = (double) dataSnapshot.getValue();
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-
         return rootView;
 
 
@@ -172,14 +149,9 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
 
 
     }
-    public void change(){
-        if(!fromEditText.getText().toString().equals("")) {
-            double dub = Double.parseDouble(fromEditText.getText().toString()) * 6;
-            String tot = new Double(dub).toString();
-            result.setText(tot);
-        }
 
-    }
+
+
 //{"Meter", "Centimeter", "Inch", "Feet","Kilometer","Mile"}
     @Override
     public void onClick(View view) {
