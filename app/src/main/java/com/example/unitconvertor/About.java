@@ -36,8 +36,9 @@ public class About extends AppCompatActivity  {
                 startActivity(intent);
                 break;
 
-            case R.id.aboutsmenu:
-                Toast.makeText(this, "about", Toast.LENGTH_LONG).show();
+            case R.id.historymenu:
+                Intent history = new Intent(this,HistoryArrayList.class);
+                startActivity(history);
                 break;
             case R.id.logoutmenu:
                 Intent i = new Intent(this, LogInActivity.class);

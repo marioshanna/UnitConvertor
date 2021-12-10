@@ -38,7 +38,7 @@ public class HistoryArrayList extends AppCompatActivity  {
         //reference to the list view so it can be programmed
         myListView= findViewById(R.id.myListView);
         //connect adapter with data
-        myAdapter=new CustomAdapter(this,R.layout.unit_row,list);
+        myAdapter=new CustomAdapter(this,R.layout.row,list);
         //connect adapter with view
         myListView.setAdapter(myAdapter);
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

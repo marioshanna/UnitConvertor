@@ -6,8 +6,8 @@
         android:id="@+id/cammenu"
         android:title="camera" />
     <item
-        android:id="@+id/aboutsmenu"
-        android:title="about" />
+        android:id="@+id/historymenu"
+        android:title="history" />
     <item
         android:id="@+id/logoutmenu"
         android:title="LogOut"/>
