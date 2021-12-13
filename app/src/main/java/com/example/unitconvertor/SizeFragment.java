@@ -1,5 +1,6 @@
 package com.example.unitconvertor;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -156,6 +157,7 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if(!fromEditText.getText().toString().equals("")) {
+
             if(from==0){
                 switch (to){
                     case 0:
@@ -290,7 +292,11 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
             }
 
 
+
         }
+        Intent i = new Intent(getActivity(), unit.class);
+        i.putExtra("from",from);
+        startActivity(i);
     }
     public String same(EditText fromEditText){
         double num;
