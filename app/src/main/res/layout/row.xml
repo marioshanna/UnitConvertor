@@ -56,6 +56,13 @@
             android:textColor="@color/black"
             android:gravity=""
             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textviewresult"
+            android:textSize="25sp"
+            android:text=""
+            android:gravity=""/>
         <Space
             android:layout_width="30dp"
             android:layout_height="wrap_content"/>
@@ -68,12 +75,14 @@
             android:gravity=""/>
 
         <Button
+            android:id="@+id/buttonitem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#228B22"
             android:clickable="true"
             android:text="delete"
             android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:onClick=""/>
     </LinearLayout>
 </LinearLayout>

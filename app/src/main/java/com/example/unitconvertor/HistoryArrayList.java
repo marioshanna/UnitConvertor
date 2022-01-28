@@ -32,6 +32,7 @@ public class HistoryArrayList extends AppCompatActivity  {
 
     private FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
 
+
 public void Unit (){}
     @Override
     protected void onCreate(Bundle savedInstanceState) {

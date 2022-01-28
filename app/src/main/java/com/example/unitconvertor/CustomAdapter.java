@@ -34,17 +34,21 @@ public class CustomAdapter extends ArrayAdapter<unit> {
             view= LayoutInflater.from(context).inflate(resource,parent,false);
         unit unit =getItem(position);
         if(unit!=null){
-            ImageView imageView= view.findViewById(R.id.imageItem);
-            TextView textViewDescription = view.findViewById(R.id.textViewDesc);
-            Button itemButton = view.findViewById(R.id.itemButton);
+
+            TextView textViewDescription1 = view.findViewById(R.id.textViewfrom);
+            TextView textViewDescription2 = view.findViewById(R.id.textviewto);
+            TextView textViewDescription3 = view.findViewById(R.id.textviewresult);
+            Button itemButton = view.findViewById(R.id.buttonitem);
             itemButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(context,"this item was added to cart",Toast.LENGTH_LONG).show();
                 }
             });
-            imageView.setImageResource(unit.getResid());
-            textViewDescription.setText(unit.getDescription());
+
+            textViewDescription1.setText(unit.getDescription());
+            textViewDescription2.setText(unit.getDescription());
+            textViewDescription3.setText(unit.getDescription());
 
         }
         return view;

@@ -5,10 +5,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.os.Bundle;
+import android.content.Intent;
 import java.io.Serializable;
 
-public class unit implements Serializable {
+import androidx.appcompat.app.AppCompatActivity;
+
+
+public class unit extends AppCompatActivity implements Serializable {
     private  String description;
     private int resid;//image id
     private boolean ishappy;
@@ -17,18 +21,21 @@ public class unit implements Serializable {
     private View tvto;
     private View tvresult;
 
+
 public void stam(LayoutInflater inflater, ViewGroup container,
                  Bundle savedInstanceState) {
     View rootView = inflater.inflate(R.layout.row, container,false);
     tvfrom = rootView.findViewById(R.id.textViewfrom);
     tvto = rootView.findViewById(R.id.textviewto);
     tvresult = rootView.findViewById(R.id.resulttextview);
-    Bundle extras = getIntent().getExtras();
-    if (extras != null) {
-        String value = extras.getString("from");
-        //The key argument here must match that used in the other activity
+    String from;
+
+    Bundle bundle = getIntent().getExtras();
+    if (bundle != null) {
+        from = bundle.getString("sample_name");
     }
 }
+
 
 
     public unit(String description, int resid, boolean ishappy, int amount) {

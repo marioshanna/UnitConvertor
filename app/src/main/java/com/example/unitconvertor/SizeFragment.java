@@ -294,9 +294,16 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
 
 
         }
-        Intent i = new Intent(getActivity(), unit.class);
-        i.putExtra("from",from);
-        startActivity(i);
+        int value = from;
+        Intent intent = new Intent(getActivity(), unit.class);
+        intent.putExtra("sample_name", value);
+        startActivity(intent);
+    }
+    public void addToHistory(String conversion, double from, double to){
+        String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://unit-convertor-4bca3-default-rtdb.europe-west1.firebasedatabase.app/");
+        DatabaseReference myRef = firebaseDatabase.getReference("Users/"+conversion);
+        myRef.push().setValue();
     }
     public String same(EditText fromEditText){
         double num;
