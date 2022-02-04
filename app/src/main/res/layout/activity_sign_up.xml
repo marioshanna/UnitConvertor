@@ -6,11 +6,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".SignUpActivity">
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="25dp">
 
-    </Space>
+    <ImageView
+        android:id="@+id/imageView1"
+
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:srcCompat="@drawable/wavesss" />
+        />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -53,13 +56,13 @@
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="50dp" >
-
-
+            android:layout_height="50dp"
+            android:gravity="center_vertical">
             <TextView
                 android:id="@+id/passwordTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:text="Password: " />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -70,13 +73,14 @@
 
                 <EditText
                     android:id="@+id/passwordTextView1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:ems="10"
                     android:inputType="textPassword"
-                    android:hint="Password" />
+                    android:hint="Password"
+                    android:backgroundTint="@color/white"/>
 
             </com.google.android.material.textfield.TextInputLayout>
         </TableRow>
@@ -104,7 +108,8 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="50dp"
+            android:gravity="center_vertical">
             <TextView
                 android:id="@+id/GenderTextView"
                 android:layout_width="wrap_content"
@@ -165,5 +170,6 @@
         android:backgroundTint="#5F9EA0"
         android:onClick="submit"
         android:padding="20dp"
+        android:background="@drawable/roundbutton"
         android:text="Submit" />
 </LinearLayout>

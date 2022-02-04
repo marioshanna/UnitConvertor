@@ -42,19 +42,16 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
     private TextView result;
     private Button button;
     private int from=0, to=0;
+    private double res=0;
 
 
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
-
 
     /**
      * Use this factory method to create a new instance of
@@ -80,7 +77,7 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
 
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+       mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
 
@@ -161,21 +158,27 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
             if(from==0){
                 switch (to){
                     case 0:
+                        res=Double.parseDouble(same(fromEditText));
                         result.setText(same(fromEditText));
                         break;
                     case 1:
+                        res=Double.parseDouble(metercenti(fromEditText));
                         result.setText(metercenti(fromEditText));
                         break;
                     case 2:
+                        res=Double.parseDouble(meterinch(fromEditText));
                         result.setText(meterinch(fromEditText));
                         break;
                     case 3:
+                        res=Double.parseDouble(meterfeet(fromEditText));
                         result.setText(meterfeet(fromEditText));
                         break;
                     case 4:
+                        res=Double.parseDouble(meterkilo(fromEditText));
                         result.setText(meterkilo(fromEditText));
                         break;
                     case 5:
+                        res=Double.parseDouble(metermile(fromEditText));
                         result.setText(metermile(fromEditText));
                         break;
                 }
@@ -183,21 +186,27 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
             if(from==1){
                 switch (to){
                     case 0:
+                        res=Double.parseDouble(centimeter(fromEditText));
                         result.setText(centimeter(fromEditText));
                         break;
                     case 1:
+                        res=Double.parseDouble(same(fromEditText));
                         result.setText(same(fromEditText));
                         break;
                     case 2:
+                        res=Double.parseDouble(centiinch(fromEditText));
                         result.setText(centiinch(fromEditText));
                         break;
                     case 3:
+                        res=Double.parseDouble(centifeet(fromEditText));
                         result.setText(centifeet(fromEditText));
                         break;
                     case 4:
+                        res=Double.parseDouble(centikilo(fromEditText));
                         result.setText(centikilo(fromEditText));
                         break;
                     case 5:
+                        res=Double.parseDouble(centimile(fromEditText));
                         result.setText(centimile(fromEditText));
                         break;
                 }
@@ -205,21 +214,27 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
             if(from==2){
                 switch (to){
                     case 0:
+                        res=Double.parseDouble(inchmeter(fromEditText));
                         result.setText(inchmeter(fromEditText));
                         break;
                     case 1:
+                        res=Double.parseDouble(inchcenti(fromEditText));
                         result.setText(inchcenti(fromEditText));
                         break;
                     case 2:
+                        res=Double.parseDouble(same(fromEditText));
                         result.setText(same(fromEditText));
                         break;
                     case 3:
+                        res=Double.parseDouble(inchfeet(fromEditText));
                         result.setText(inchfeet(fromEditText));
                         break;
                     case 4:
+                        res=Double.parseDouble(inchkilo(fromEditText));
                         result.setText(inchkilo(fromEditText));
                         break;
                     case 5:
+                        res=Double.parseDouble(inchmile(fromEditText));
                         result.setText(inchmile(fromEditText));
                         break;
                 }
@@ -227,21 +242,27 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
             if(from==3){
                 switch (to){
                     case 0:
+                        res=Double.parseDouble(feetmeter(fromEditText));
                         result.setText(feetmeter(fromEditText));
                         break;
                     case 1:
+                        res=Double.parseDouble(feetcenti(fromEditText));
                         result.setText(feetcenti(fromEditText));
                         break;
                     case 2:
+                        res=Double.parseDouble(feetinch(fromEditText));
                         result.setText(feetinch(fromEditText));
                         break;
                     case 3:
+                        res=Double.parseDouble(same(fromEditText));
                         result.setText(same(fromEditText));
                         break;
                     case 4:
+                        res=Double.parseDouble(feetkilo(fromEditText));
                         result.setText(feetkilo(fromEditText));
                         break;
                     case 5:
+                        res=Double.parseDouble(feetmile(fromEditText));
                         result.setText(feetmile(fromEditText));
                         break;
                 }
@@ -249,21 +270,27 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
             if(from==4){
                 switch (to){
                     case 0:
+                        res=Double.parseDouble(kilometer(fromEditText));
                         result.setText(kilometer(fromEditText));
                         break;
                     case 1:
+                        res=Double.parseDouble(kilocm(fromEditText));
                         result.setText(kilocm(fromEditText));
                         break;
                     case 2:
+                        res=Double.parseDouble(kiloinch(fromEditText));
                         result.setText(kiloinch(fromEditText));
                         break;
                     case 3:
+                        res=Double.parseDouble(kilofeet(fromEditText));
                         result.setText(kilofeet(fromEditText));
                         break;
                     case 4:
+                        res=Double.parseDouble(same(fromEditText));
                         result.setText(same(fromEditText));
                         break;
                     case 5:
+                        res=Double.parseDouble(kilomile(fromEditText));
                         result.setText(kilomile(fromEditText));
                         break;
                 }
@@ -271,21 +298,27 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
             if(from==5){
                 switch (to){
                     case 0:
+                        res=Double.parseDouble(milemeter(fromEditText));
                         result.setText(milemeter(fromEditText));
                         break;
                     case 1:
+                        res=Double.parseDouble(milecm(fromEditText));
                         result.setText(milecm(fromEditText));
                         break;
                     case 2:
+                        res=Double.parseDouble(mileinch(fromEditText));
                         result.setText(mileinch(fromEditText));
                         break;
                     case 3:
+                        res=Double.parseDouble(milefeet(fromEditText));
                         result.setText(milefeet(fromEditText));
                         break;
                     case 4:
+                        res=Double.parseDouble(milekm(fromEditText));
                         result.setText(milekm(fromEditText));
                         break;
                     case 5:
+                        res=Double.parseDouble(same(fromEditText));
                         result.setText(same(fromEditText));
                         break;
                 }
@@ -294,16 +327,16 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
 
 
         }
-        int value = from;
-        Intent intent = new Intent(getActivity(), unit.class);
-        intent.putExtra("sample_name", value);
-        startActivity(intent);
+
+        addToHistory("Size", from, to, res);
+
     }
-    public void addToHistory(String conversion, double from, double to){
+    public void addToHistory(String conversion, int from, int to, double result){
         String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://unit-convertor-4bca3-default-rtdb.europe-west1.firebasedatabase.app/");
         DatabaseReference myRef = firebaseDatabase.getReference("Users/"+conversion);
-        myRef.push().setValue();
+        Conversion conversion1 = new Conversion(conversion, from, to, result);
+        myRef.push().setValue(conversion1);
     }
     public String same(EditText fromEditText){
         double num;

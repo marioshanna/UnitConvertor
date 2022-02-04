@@ -13,9 +13,9 @@
         android:layout_width="325dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:backgroundTint="#5F9EA0"
         android:gravity="center"
         android:text="convertor"
+        android:background="@drawable/roundbutton"
         android:onClick="convertor"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -34,6 +34,7 @@
         android:text="currency exchange rates"
         android:textColor="@color/white"
         android:textSize="16sp"
+        android:background="@drawable/roundbutton"
         android:textStyle="bold" />
 
     <Space
@@ -49,6 +50,8 @@
         android:text="weather"
         android:textColor="@color/white"
         android:textSize="16sp"
+        android:background="@drawable/roundbutton"
+
         android:textStyle="bold" />
 
 
