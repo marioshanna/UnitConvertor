@@ -1,20 +1,34 @@
 package com.example.unitconvertor;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link TempFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TempFragment extends Fragment {
-
+public class TempFragment extends Fragment implements View.OnClickListener{
+    private Spinner spinnerfrom;
+    private Spinner spinnerto;
+    private EditText fromEditText;
+    private TextView result;
+    private Button button;
+    private int from=0, to=0;
+    private double res=0;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -59,6 +73,110 @@ public class TempFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_temp, container, false);
+        // Inflate the layout for this fragment
+        View rootView = inflater.inflate(R.layout.fragment_temp, container, false);
+        spinnerfrom = rootView.findViewById(R.id.spinnerfromtemp);
+        fromEditText =rootView.findViewById(R.id.fromtexttemp);
+        spinnerto = rootView.findViewById(R.id.spinnertotemp);
+        result = rootView.findViewById(R.id.Resulttemp);
+        button = rootView.findViewById(R.id.convertor_buttontemp);
+        initspinnerfooter();
+        initspinnerfooter1();
+        // Write a message to the database
+        button.setOnClickListener(this);
+        return rootView;
+
     }
+    private void initspinnerfooter() {
+        String[] items = new String[]{"fehrenheit","celsius"};
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, items);
+        spinnerfrom.setAdapter(adapter1);
+        spinnerfrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent1, View view1, int position1, long id1) {
+                double from=0.0;
+                Log.v("item", (String) parent1.getItemAtPosition(position1));
+                ((TextView) parent1.getChildAt(0)).setTextColor(Color.BLACK);
+                from = position1;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+
+    }
+
+
+    private void initspinnerfooter1() {
+        String[] items1 = new String[]{"fehrenheit","celsius"};
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, items1);
+        spinnerto.setAdapter(adapter2);
+        spinnerto.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent2, View view2, int position2, long id2) {
+
+                Log.v("item", (String) parent2.getItemAtPosition(position2));
+                ((TextView) parent2.getChildAt(0)).setTextColor(Color.BLACK);
+                to=position2;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+
+    }
+    @Override
+    public void onClick(View view) {
+        if(!fromEditText.getText().toString().equals("")) {
+
+            if(from==0){
+                switch (to){
+                    case 0:
+                        res=Double.parseDouble(same(fromEditText));
+                        result.setText(same(fromEditText));
+                        break;
+                    case 1:
+                        res=Double.parseDouble(fercel(fromEditText));
+                        result.setText(fercel(fromEditText));
+                        break;
+                }
+            }
+            if(from==1) {
+                switch (to) {
+                    case 0:
+                        res = Double.parseDouble(celfer(fromEditText));
+                        result.setText(celfer(fromEditText));
+                        break;
+                    case 1:
+                        res = Double.parseDouble(same(fromEditText));
+                        result.setText(same(fromEditText));
+                        break;
+
+                }
+            }}}
+    public String same(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString());
+        String tot = new Double(num).toString();
+        return tot;
+    }
+    public String fercel(EditText fromEditText){
+        double num;
+        num= (Double.parseDouble(fromEditText.getText().toString())-32)/1.8;
+        String tot = new Double(num).toString();
+        return tot;
+    }
+    public String celfer(EditText fromEditText){
+        double num;
+        num= Double.parseDouble(fromEditText.getText().toString())*1.8+32;
+        String tot = new Double(num).toString();
+        return tot;
+    }
+
 }

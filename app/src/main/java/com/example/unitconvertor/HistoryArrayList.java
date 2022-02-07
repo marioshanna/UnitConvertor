@@ -28,7 +28,7 @@ public class HistoryArrayList extends AppCompatActivity  {
     private CustomAdapter myAdapter;
 
     //object containing the items the be displayed-data
-    private ArrayList<unit> list;
+    private ArrayList<Conversion> list;
 
     private FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
 
@@ -40,13 +40,13 @@ public void Unit (){}
         setContentView(R.layout.activity_history_array_list);
 
         list=new ArrayList<>();
-        list.add(new unit("first item",R.drawable.sun,true,50));
+     /*   list.add(new unit("first item",R.drawable.sun,true,50));
         list.add(new unit("second item",R.drawable.sun,false,100));
         list.add(new unit("third item",R.drawable.sun,false,75));
         list.add(new unit("fourth item",R.drawable.sun,true,25));
         list.add(new unit("fifth item",R.drawable.sun,false,125));
 
-        //reference to the list view so it can be programmed
+    */    //reference to the list view so it can be programmed
         myListView= findViewById(R.id.myListView);
         //connect adapter with data
         myAdapter=new CustomAdapter(this,R.layout.row,list);
@@ -63,18 +63,19 @@ public void Unit (){}
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 list.remove(i);
                 myAdapter.notifyDataSetChanged();
+
                 return false;
             }
         });
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://unit-convertor-4bca3-default-rtdb.europe-west1.firebasedatabase.app/");
         String UID= mFirebaseAuth.getUid();
-        DatabaseReference myRef = database.getReference("users/"+UID);
+        DatabaseReference myRef = database.getReference("Users/Size");
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-                  unit unit = dataSnapshot.getValue(unit.class);
+                  Conversion unit = dataSnapshot.getValue(Conversion.class);
                   list.add(unit);
 
                   myAdapter.notifyDataSetChanged();

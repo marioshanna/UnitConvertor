@@ -5,10 +5,98 @@
     android:layout_height="match_parent"
     tools:context=".TempFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="temp" />
 
-</FrameLayout>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+            <TableRow>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="50dp" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="From: "
+                    android:textSize="25sp"
+                    android:textColor="@color/black"/>
+
+                <Spinner
+                    android:id="@+id/spinnerfromtemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:spinnerMode="dropdown"
+
+                    />
+                <EditText
+                    android:id="@+id/fromtexttemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:hint="from"
+                    android:textSize="20sp"
+                    />
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="to: "
+                    android:textSize="25sp"
+                    android:textColor="@color/black"
+                    />
+
+                <Spinner
+                    android:id="@+id/spinnertotemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:spinnerMode="dropdown"/>
+
+                <Button
+                    android:id="@+id/convertor_buttontemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="75dp"
+                    android:backgroundTint="#5F9EA0"
+                    android:text="CONVERT"
+                    android:layout_gravity="left"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    />
+
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Result: "
+                    android:textColor="@color/black"
+                    android:textSize="25sp"/>
+                <TextView
+                    android:id="@+id/Resulttemp"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:ems="10"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+
+
+
+                    />
+
+            </TableRow>
+        </TableLayout>
+
+
+
+
+    </FrameLayout>
+

@@ -16,11 +16,11 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class CustomAdapter extends ArrayAdapter<unit> {
+public class CustomAdapter extends ArrayAdapter<Conversion> {
     private Context context;
     private int resource;
 
-    public CustomAdapter(@NonNull Context context, int resource, @NonNull List<unit> objects) {
+    public CustomAdapter(@NonNull Context context, int resource, @NonNull List<Conversion> objects) {
         super(context, resource, objects);
         this.context=context;
         this.resource=resource;
@@ -32,12 +32,13 @@ public class CustomAdapter extends ArrayAdapter<unit> {
         View view = convertView;
         if(view==null)
             view= LayoutInflater.from(context).inflate(resource,parent,false);
-        unit unit =getItem(position);
+        Conversion unit =getItem(position);
         if(unit!=null){
 
             TextView textViewDescription1 = view.findViewById(R.id.textViewfrom);
             TextView textViewDescription2 = view.findViewById(R.id.textviewto);
             TextView textViewDescription3 = view.findViewById(R.id.textviewresult);
+
             Button itemButton = view.findViewById(R.id.buttonitem);
             itemButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -46,9 +47,10 @@ public class CustomAdapter extends ArrayAdapter<unit> {
                 }
             });
 
-            textViewDescription1.setText(unit.getDescription());
-            textViewDescription2.setText(unit.getDescription());
-            textViewDescription3.setText(unit.getDescription());
+            textViewDescription1.setText(unit.getFrom()+"");
+            textViewDescription2.setText(unit.getTo()+"");
+            textViewDescription3.setText(unit.getResult()+"");
+
 
         }
         return view;

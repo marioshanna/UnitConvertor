@@ -1,12 +1,20 @@
 package com.example.unitconvertor;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +22,13 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class WeightFragment extends Fragment {
+    private Spinner spinnerfrom;
+    private Spinner spinnerto;
+    private EditText fromEditText;
+    private TextView result;
+    private Button button;
+    private int from=0, to=0;
+    private double res=0;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +74,39 @@ public class WeightFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_weight, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_weight, container, false);
+        spinnerfrom = rootView.findViewById(R.id.spinnerfrom);
+        fromEditText =rootView.findViewById(R.id.fromtext);
+        spinnerto = rootView.findViewById(R.id.spinnerto);
+        result = rootView.findViewById(R.id.Result);
+        button = rootView.findViewById(R.id.convertor_button);
+        initspinnerfooter();
+    //    initspinnerfooter1();
+        // Write a message to the database
+      //  button.setOnClickListener(this);
+        return rootView;
+
+    }
+
+    private void initspinnerfooter() {
+        String[] items = new String[]{"Meter", "Centimeter", "Inch", "Feet", "Kilometer", "Mile"};
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, items);
+        spinnerfrom.setAdapter(adapter1);
+        spinnerfrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent1, View view1, int position1, long id1) {
+                double from = 0.0;
+                Log.v("item", (String) parent1.getItemAtPosition(position1));
+                ((TextView) parent1.getChildAt(0)).setTextColor(Color.BLACK);
+                from = position1;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+
     }
 }
