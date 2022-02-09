@@ -27,7 +27,7 @@ public void stam(LayoutInflater inflater, ViewGroup container,
     View rootView = inflater.inflate(R.layout.row, container,false);
     tvfrom = rootView.findViewById(R.id.textViewfrom);
     tvto = rootView.findViewById(R.id.textviewto);
-    tvresult = rootView.findViewById(R.id.resulttextview);
+    tvresult = rootView.findViewById(R.id.textviewresult);
     String from;
 
     Bundle bundle = getIntent().getExtras();
