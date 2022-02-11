@@ -8,9 +8,15 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -35,21 +41,30 @@ public class CustomAdapter extends ArrayAdapter<Conversion> {
         Conversion unit =getItem(position);
         if(unit!=null){
 
+            String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://unit-convertor-4bca3-default-rtdb.europe-west1.firebasedatabase.app/");
+            DatabaseReference myRef = firebaseDatabase.getReference("Users/"+user+"/"+unit.getKey());
+
+
             TextView textViewDescription1 = view.findViewById(R.id.textViewfrom);
             TextView textViewDescription2 = view.findViewById(R.id.textviewto);
             TextView textViewDescription3 = view.findViewById(R.id.textviewresult);
 
             Button itemButton = view.findViewById(R.id.buttonitem);
+
             itemButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(context,"this item was added to cart",Toast.LENGTH_LONG).show();
+
+                    myRef.removeValue();
+                    Toast.makeText(context,"This item was deleted",Toast.LENGTH_LONG).show();
+                    notifyDataSetChanged();
                 }
             });
 
-            textViewDescription1.setText(unit.getFrom()+"");
-            textViewDescription2.setText(unit.getTo()+"");
-            textViewDescription3.setText(unit.getResult()+"");
+            textViewDescription1.setText("From:"+unit.getFrom()+"");
+            textViewDescription2.setText("To:"+unit.getTo()+"");
+            textViewDescription3.setText("Result:"+unit.getResult()+"");
 
 
         }

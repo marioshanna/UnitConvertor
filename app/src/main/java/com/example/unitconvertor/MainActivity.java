@@ -1,5 +1,6 @@
 package com.example.unitconvertor;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlarmManager;
@@ -7,6 +8,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,4 +33,35 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ConvertorActivity.class);
         startActivity(intent);
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.cammenu:
+                Intent intent = new Intent(this, ProfileActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.historymenu:
+                Intent history = new Intent(this,HistoryArrayList.class);
+                startActivity(history);
+                break;
+            case R.id.logoutmenu:
+                Intent i = new Intent(this, LogInActivity.class);
+                startActivity(i);
+                break;
+
+
+        }
+
+
+        return super.onOptionsItemSelected(item);
+
+    }
+
 }

@@ -54,18 +54,10 @@ public class HistoryArrayList extends AppCompatActivity  {
 
         list=new ArrayList<>();
         button = findViewById(R.id.buttonitem);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-list.remove(button.getScrollX());
-                myAdapter.notifyDataSetChanged();
 
 
-            }
-        });
 
-
-      list.add(new Conversion("first item",1,1,1.0));
+      //list.add(new Conversion("first item",1,1,1.0));
       //  list.add(new unit("second item",R.drawable.sun,false,100));
        // list.add(new unit("third item",R.drawable.sun,false,75));
        // list.add(new unit("fourth item",R.drawable.sun,true,25));
@@ -78,6 +70,7 @@ list.remove(button.getScrollX());
         //connect adapter with view
         myListView.setAdapter(myAdapter);
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(getApplicationContext(),"Item:"+list.get(i),Toast.LENGTH_LONG).show();
@@ -94,7 +87,7 @@ list.remove(button.getScrollX());
         });
         FirebaseDatabase database = FirebaseDatabase.getInstance("https://unit-convertor-4bca3-default-rtdb.europe-west1.firebasedatabase.app/");
         String UID= mFirebaseAuth.getUid();
-        DatabaseReference myRef = database.getReference("Users/Size");
+        DatabaseReference myRef = database.getReference("Users/"+UID);
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override

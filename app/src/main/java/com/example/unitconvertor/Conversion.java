@@ -5,6 +5,7 @@ public class Conversion {
     private int from;
     private int to;
     private Double result;
+    private String key;
 
     public Conversion (String type,int from,int to,Double result){
         this.type=type;
@@ -13,6 +14,14 @@ public class Conversion {
         this.result=result;
     }
     public Conversion(){}
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
 
     public String getType() {
         return type;

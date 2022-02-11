@@ -108,36 +108,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnLongClick
         startActivity(intent);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.cammenu:
-                Intent intent = new Intent(this, ProfileActivity.class);
-                startActivity(intent);
-                break;
-
-            case R.id.historymenu:
-                Intent history = new Intent(this,HistoryArrayList.class);
-                startActivity(history);
-                break;
-            case R.id.logoutmenu:
-                Intent i = new Intent(this, LogInActivity.class);
-                startActivity(i);
-                break;
-
-
-        }
-
-
-        return super.onOptionsItemSelected(item);
-
-    }
     public void login2 (View view){
         SharedPreferences sp = getSharedPreferences("settings", MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
