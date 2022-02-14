@@ -1,7 +1,9 @@
 package com.example.unitconvertor;
-
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.ClipData;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,12 +26,14 @@ import androidx.annotation.Nullable;
 
 public class CustomAdapter extends ArrayAdapter<Conversion> {
     private Context context;
+    private List<Conversion> objects;
     private int resource;
 
     public CustomAdapter(@NonNull Context context, int resource, @NonNull List<Conversion> objects) {
         super(context, resource, objects);
         this.context=context;
         this.resource=resource;
+        this.objects = objects;
     }
 
     @NonNull
@@ -58,6 +62,7 @@ public class CustomAdapter extends ArrayAdapter<Conversion> {
 
                     myRef.removeValue();
                     Toast.makeText(context,"This item was deleted",Toast.LENGTH_LONG).show();
+                    objects.remove(position);
                     notifyDataSetChanged();
                 }
             });
@@ -71,4 +76,5 @@ public class CustomAdapter extends ArrayAdapter<Conversion> {
         return view;
 
     }
+
 }

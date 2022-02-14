@@ -328,14 +328,14 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
 
         }
 
-        addToHistory("Size", from, to, res);
+        addToHistory("Size", fromEditText, res);
 
     }
-    public void addToHistory(String conversion, int from, int to, double result){
+    public void addToHistory(String conversion, EditText from, double result){
         String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://unit-convertor-4bca3-default-rtdb.europe-west1.firebasedatabase.app/");
         DatabaseReference myRef = firebaseDatabase.getReference("Users/"+user);
-        Conversion conversion1 = new Conversion(conversion, from, to, result);
+        Conversion conversion1 = new Conversion(conversion,from, result);
         String key = myRef.push().getKey();//.setValue(conversion1);
         myRef = firebaseDatabase.getReference("Users/"+user+"/"+key);
         conversion1.setKey(key);

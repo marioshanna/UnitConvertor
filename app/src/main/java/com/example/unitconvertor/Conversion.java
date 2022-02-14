@@ -1,5 +1,7 @@
 package com.example.unitconvertor;
 
+import android.widget.EditText;
+
 public class Conversion {
     private String type;
     private int from;
@@ -13,7 +15,7 @@ public class Conversion {
         this.to=to;
         this.result=result;
     }
-    public Conversion(){}
+    public Conversion(String conversion, EditText from, double result){}
 
     public String getKey() {
         return key;
