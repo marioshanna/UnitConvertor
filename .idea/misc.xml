@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Android/UnitConvertor/app/src/main/res/drawable-v24/centre_background.xml" value="0.20153846153846153" />
         <entry key="..\:/Android/UnitConvertor/app/src/main/res/drawable-v24/centre_button.xml" value="0.20153846153846153" />
+        <entry key="..\:/Android/UnitConvertor/app/src/main/res/drawable/arrow.xml" value="0.2046875" />
+        <entry key="..\:/Android/UnitConvertor/app/src/main/res/drawable/downarrow.xml" value="0.2046875" />
         <entry key="..\:/Android/UnitConvertor/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.1125" />
         <entry key="..\:/Android/UnitConvertor/app/src/main/res/drawable/ic_baseline_monetization_on_24.xml" value="0.18541666666666667" />
         <entry key="..\:/Android/UnitConvertor/app/src/main/res/drawable/money.xml" value="0.109375" />

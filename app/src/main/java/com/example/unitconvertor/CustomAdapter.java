@@ -28,6 +28,7 @@ public class CustomAdapter extends ArrayAdapter<Conversion> {
     private Context context;
     private List<Conversion> objects;
     private int resource;
+    private String[] items = new String[]{"Meters", "Centimeters", "Inches", "Feet","Kilometers","Miles"};
 
     public CustomAdapter(@NonNull Context context, int resource, @NonNull List<Conversion> objects) {
         super(context, resource, objects);
@@ -67,8 +68,8 @@ public class CustomAdapter extends ArrayAdapter<Conversion> {
                 }
             });
 
-            textViewDescription1.setText("From:"+unit.getFrom()+"");
-            textViewDescription2.setText("To:"+unit.getTo()+"");
+            textViewDescription1.setText("From:"+unit.getFromnum()+items[unit.getFrom()]);
+            textViewDescription2.setText("To:"+items[unit.getTo()]);
             textViewDescription3.setText("Result:"+unit.getResult()+"");
 
 

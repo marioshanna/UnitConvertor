@@ -8,14 +8,26 @@ public class Conversion {
     private int to;
     private Double result;
     private String key;
+    private double fromnum;
 
-    public Conversion (String type,int from,int to,Double result){
+    public Conversion (String type,int from,int to,Double result,double fromnum){
         this.type=type;
         this.from=from;
         this.to=to;
         this.result=result;
+        this.fromnum=fromnum;
     }
-    public Conversion(String conversion, EditText from, double result){}
+    public Conversion(){
+    }
+    public Conversion(String conversion, EditText from, double result,double fromnum){}
+
+    public double getFromnum() {
+        return fromnum;
+    }
+
+    public void setFromnum(double fromnum) {
+        this.fromnum = fromnum;
+    }
 
     public String getKey() {
         return key;

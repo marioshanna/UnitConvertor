@@ -5,8 +5,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -44,6 +47,36 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 
     }
+     @Override
+     public boolean onCreateOptionsMenu(Menu menu) {
+         getMenuInflater().inflate(R.menu.menu,menu);
+         return super.onCreateOptionsMenu(menu);
+     }
+
+     @Override
+     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+         switch (item.getItemId()) {
+             case R.id.cammenu:
+                 Intent intent = new Intent(this, ProfileActivity.class);
+                 startActivity(intent);
+                 break;
+
+             case R.id.historymenu:
+                 Intent history = new Intent(this,HistoryArrayList.class);
+                 startActivity(history);
+                 break;
+             case R.id.logoutmenu:
+                 Intent i = new Intent(this, LogInActivity.class);
+                 startActivity(i);
+                 break;
+
+
+         }
+
+
+         return super.onOptionsItemSelected(item);
+
+     }
 
 
 

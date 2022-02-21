@@ -73,40 +73,6 @@ public class WeightFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_weight, container, false);
-        spinnerfrom = rootView.findViewById(R.id.spinnerfrom);
-        fromEditText =rootView.findViewById(R.id.fromtext);
-        spinnerto = rootView.findViewById(R.id.spinnerto);
-        result = rootView.findViewById(R.id.Result);
-        button = rootView.findViewById(R.id.convertor_button);
-        initspinnerfooter();
-    //    initspinnerfooter1();
-        // Write a message to the database
-      //  button.setOnClickListener(this);
-        return rootView;
 
-    }
-
-    private void initspinnerfooter() {
-        String[] items = new String[]{"Meter", "Centimeter", "Inch", "Feet", "Kilometer", "Mile"};
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, items);
-        spinnerfrom.setAdapter(adapter1);
-        spinnerfrom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent1, View view1, int position1, long id1) {
-                double from = 0.0;
-                Log.v("item", (String) parent1.getItemAtPosition(position1));
-                ((TextView) parent1.getChildAt(0)).setTextColor(Color.BLACK);
-                from = position1;
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // TODO Auto-generated method stub
-            }
-        });
-
-
-    }
-}
+    return null;
+}}
