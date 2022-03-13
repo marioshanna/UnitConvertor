@@ -4,71 +4,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:descendantFocusability="blocksDescendants">
-        <TableLayout
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="400dp">
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/textViewfrom"
-                    android:layout_width="wrap_content"
-                    android:layout_height="160dp"
-                    android:gravity=""
-                    android:text="from:"
-                    android:textColor="@color/black"
-                    android:textSize="25sp" />
-            </TableRow>
-            <TableRow>
-
-                <ImageView
-                    android:layout_width="46dp"
-                    android:layout_height="match_parent"
-android:layout_gravity="center"
-                    android:src="@drawable/icon8" />
-            </TableRow>
-
-
-
-    <TableRow>
-                <TextView
-                    android:id="@+id/textviewto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp"
-                    android:text="to:"
-                    android:textSize="25sp"
-                    android:textColor="@color/black"
-                    android:gravity=""
-                    />
+            <TextView
+                android:id="@+id/textViewfrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity=""
+                android:text="from:"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
         </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/textviewresult"
-                    android:layout_width="200dp"
-                    android:layout_height="150dp"
-                    android:text="result:"
-                    android:textSize="25sp"
-                    android:textColor="@color/black"
-                    android:gravity=""
-                    />
+        <TableRow>
 
-                <Button
-                    android:id="@+id/buttonitem"
+            <ImageView
+                android:layout_width="46dp"
+                android:layout_height="match_parent"
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="75dp"
-                    android:backgroundTint="#5F9EA0"
-                    android:clickable="true"
-                    android:text="delete"
-                    android:textColor="@color/white"
-                    android:textStyle="bold">
+                android:src="@drawable/icon8" />
+        </TableRow>
 
-                </Button>
-            </TableRow>
 
-</TableLayout>
+        <TableRow>
+
+            <TextView
+                android:id="@+id/textviewresult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity=""
+                android:text="result:"
+                android:textColor="@color/black"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/buttonitem"
+                android:layout_width="wrap_content"
+                android:layout_height="75dp"
+                android:backgroundTint="#5F9EA0"
+                android:clickable="true"
+                android:text="delete"
+                android:textColor="@color/white"
+                android:textStyle="bold">
+
+            </Button>
+
+
+        </TableRow>
+
+    </TableLayout>
     </LinearLayout>

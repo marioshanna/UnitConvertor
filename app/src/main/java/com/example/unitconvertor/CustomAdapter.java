@@ -52,7 +52,7 @@ public class CustomAdapter extends ArrayAdapter<Conversion> {
 
 
             TextView textViewDescription1 = view.findViewById(R.id.textViewfrom);
-            TextView textViewDescription2 = view.findViewById(R.id.textviewto);
+
             TextView textViewDescription3 = view.findViewById(R.id.textviewresult);
 
             Button itemButton = view.findViewById(R.id.buttonitem);
@@ -69,8 +69,8 @@ public class CustomAdapter extends ArrayAdapter<Conversion> {
             });
 
             textViewDescription1.setText("From:"+unit.getFromnum()+items[unit.getFrom()]);
-            textViewDescription2.setText("To:"+items[unit.getTo()]);
-            textViewDescription3.setText("Result:"+unit.getResult()+"");
+
+            textViewDescription3.setText("Result:"+unit.getResult()+items[unit.getTo()]);
 
 
         }
