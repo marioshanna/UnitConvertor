@@ -38,7 +38,7 @@ import androidx.core.app.NotificationManagerCompat;
         //todo need to change the notification text
         noBuilder.setContentText("use this app to convert between units");
         //TODO need to changr the notification Icon
-        noBuilder.setSmallIcon(R.drawable.money);
+        noBuilder.setSmallIcon(R.drawable.ic_baseline_compare_arrows_24);
         // this intent will be pending until the user clicks on the notification
         //and will activate the activity specified in the intent
         Intent noIntent1=new Intent(this, ConvertorActivity.class);
