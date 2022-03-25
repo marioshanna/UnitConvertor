@@ -199,6 +199,8 @@ public class currencyFragment extends Fragment implements View.OnClickListener{
     }
     public void addToHistory(String conversion, int from, int to, double result,double fromnum,String fromtype,String totype){
         String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        totype=items[to];
+        fromtype=items[from];
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://unit-convertor-4bca3-default-rtdb.europe-west1.firebasedatabase.app/");
         DatabaseReference myRef = firebaseDatabase.getReference("Users/"+user);
         Conversion conversion1 = new Conversion(conversion, from, to, result,fromnum,fromtype,totype);
