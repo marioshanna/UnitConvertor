@@ -9,17 +9,24 @@ public class Conversion {
     private Double result;
     private String key;
     private double fromnum;
+    private String fromtype;
+    private String totype;
 
-    public Conversion (String type,int from,int to,Double result,double fromnum){
-        this.type=type;
-        this.from=from;
-        this.to=to;
-        this.result=result;
-        this.fromnum=fromnum;
+    public Conversion(String type, int from, int to, Double result, double fromnum, String fromtype,String totype) {
+        this.type = type;
+        this.from = from;
+        this.to = to;
+        this.result = result;
+        this.fromnum = fromnum;
+        this.fromtype = fromtype;
+        this.totype=totype;
     }
-    public Conversion(){
+
+    public Conversion() {
     }
-    public Conversion(String conversion, EditText from, double result,double fromnum){}
+
+    public Conversion(String conversion, EditText from, double result, double fromnum) {
+    }
 
     public double getFromnum() {
         return fromnum;
@@ -68,4 +75,11 @@ public class Conversion {
     public void setResult(Double result) {
         this.result = result;
     }
+
+    public void setFromtype(String fromtype){this.fromtype = fromtype;}
+    public String getFromtype(){return fromtype;}
+    public void setTotype(String fromtype){this.totype = totype;}
+    public String getTotype(){return totype;}
+
+
 }

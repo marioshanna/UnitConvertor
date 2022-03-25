@@ -16,6 +16,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link TempFragment#newInstance} factory method to
@@ -29,6 +33,9 @@ public class TempFragment extends Fragment implements View.OnClickListener{
     private Button button;
     private int from=0, to=0;
     private double res=0;
+    private String fromtype;
+    private String totype;
+    private String[] items = new String[]{"fehrenheit","celsius"};
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -133,6 +140,8 @@ public class TempFragment extends Fragment implements View.OnClickListener{
     }
     @Override
     public void onClick(View view) {
+        fromtype=items[from];
+        totype=items[to];
         if(!fromEditText.getText().toString().equals("")) {
 
             if(from==0){
@@ -159,7 +168,19 @@ public class TempFragment extends Fragment implements View.OnClickListener{
                         break;
 
                 }
-            }}}
+            }}
+        addToHistory("Size", from, to, res,Double.parseDouble((fromEditText.getText().toString())),fromtype,totype);
+    }
+
+    public void addToHistory(String conversion, int from, int to, double result,double fromnum,String fromtype,String totype){
+        String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://unit-convertor-4bca3-default-rtdb.europe-west1.firebasedatabase.app/");
+        DatabaseReference myRef = firebaseDatabase.getReference("Users/"+user);
+        Conversion conversion1 = new Conversion(conversion, from, to, result,fromnum,fromtype,totype);
+        String key = myRef.push().getKey();//.setValue(conversion1);
+        myRef = firebaseDatabase.getReference("Users/"+user+"/"+key);
+        conversion1.setKey(key);
+        myRef.setValue(conversion1);}
     public String same(EditText fromEditText){
         double num;
         num= Double.parseDouble(fromEditText.getText().toString());

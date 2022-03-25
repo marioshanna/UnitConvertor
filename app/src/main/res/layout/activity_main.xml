@@ -23,7 +23,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="75dp" />
 
     <Button
         android:id="@+id/currencyex_button"
@@ -41,18 +41,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp" />
 
-    <Button
-        android:id="@+id/weather_button"
-        android:layout_width="325dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:backgroundTint="#5F9EA0"
-        android:text="weather"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:background="@drawable/roundbutton"
-
-        android:textStyle="bold" />
 
 
 </LinearLayout>

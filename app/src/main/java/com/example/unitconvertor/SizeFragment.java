@@ -43,6 +43,9 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
     private Button button;
     private int from=0, to=0;
     private double res=0;
+    private String[] items = new String[]{"Meter", "Centimeter", "Inch", "Feet","Kilometer","Mile"};
+    private String fromtype;
+    private String totype;
 
 
 
@@ -94,6 +97,7 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
         spinnerto = rootView.findViewById(R.id.spinnerto);
         result = rootView.findViewById(R.id.Result);
         button = rootView.findViewById(R.id.convertor_button);
+
         initspinnerfooter();
         initspinnerfooter1();
         // Write a message to the database
@@ -153,6 +157,8 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
 //{"Meter", "Centimeter", "Inch", "Feet","Kilometer","Mile"}
     @Override
     public void onClick(View view) {
+        fromtype=items[from];
+        totype=items[to];
         if(!fromEditText.getText().toString().equals("")) {
 
             if(from==0){
@@ -328,15 +334,15 @@ public class SizeFragment<adapter> extends Fragment implements View.OnClickListe
 
         }
 
-        addToHistory("Size", from, to, res,Double.parseDouble((fromEditText.getText().toString())));
+        addToHistory("Size", from, to, res,Double.parseDouble((fromEditText.getText().toString())),fromtype,totype);
 
 
     }
-    public void addToHistory(String conversion, int from, int to, double result,double fromnum){
+    public void addToHistory(String conversion, int from, int to, double result,double fromnum,String fromtype,String totype){
         String user = FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance("https://unit-convertor-4bca3-default-rtdb.europe-west1.firebasedatabase.app/");
         DatabaseReference myRef = firebaseDatabase.getReference("Users/"+user);
-        Conversion conversion1 = new Conversion(conversion, from, to, result,fromnum);
+        Conversion conversion1 = new Conversion(conversion, from, to, result,fromnum,fromtype,totype);
         String key = myRef.push().getKey();//.setValue(conversion1);
         myRef = firebaseDatabase.getReference("Users/"+user+"/"+key);
         conversion1.setKey(key);

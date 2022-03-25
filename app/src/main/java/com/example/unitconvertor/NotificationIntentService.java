@@ -34,9 +34,9 @@ import androidx.core.app.NotificationManagerCompat;
     protected void onHandleIntent(Intent intent) {
         Notification.Builder noBuilder=new Notification.Builder(this);
         //todo need to change the notification title
-        noBuilder.setContentTitle("Lj shop");
+        noBuilder.setContentTitle("welcome to my app");
         //todo need to change the notification text
-        noBuilder.setContentText("this is the notification body text");
+        noBuilder.setContentText("use this app to convert between units");
         //TODO need to changr the notification Icon
         noBuilder.setSmallIcon(R.drawable.money);
         // this intent will be pending until the user clicks on the notification
